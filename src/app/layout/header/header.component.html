@@ -1,0 +1,112 @@
+<!-- START Top Navbar-->
+<nav class="navbar topnavbar" role="navigation">
+    <!-- START navbar header-->
+    <div class="navbar-header">
+        <a class="navbar-brand">
+            <div class="brand-logo">
+                <img src="../../../../assets/img/light-logo-icon.png" class="sidebar-single-logo mr-2" /><img src="../../../../assets/img/light-logo.png" class="sidebar-logo" />
+            </div>
+            <div class="brand-logo-collapsed">
+                <img src="../../../../assets/img/light-logo-icon.png" class="sidebar-single-logo" />
+            </div>
+        </a>
+    </div>
+    <!-- END navbar header-->
+    <!-- START Left navbar-->
+    <ul class="navbar-nav mr-auto flex-row">
+        <li class="nav-item">
+            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+            <a class="nav-link d-none d-md-block d-lg-block d-xl-block" trigger-resize="" (click)="toggleCollapsedSideabar()" *ngIf="!isCollapsedText()">
+                <em class="fas fa-bars"></em>
+            </a>
+            <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+            <a class="nav-link sidebar-toggle d-md-none" (click)="settings.toggleLayoutSetting('asideToggled'); $event.stopPropagation()">
+                <em class="fas fa-bars"></em>
+            </a>
+        </li>
+        <!-- <li class="nav-item d-none d-md-block">
+            <a class="nav-link"  title="Login screen" (click)=authService.SignOut()>
+                <em class="icon-lock-open"></em>
+            </a>
+        </li> -->
+        
+        <!-- START user screen-->
+        <!-- <li class="nav-item d-none d-md-block">
+            <a class="nav-link"  title="User screen" [routerLink]="'/system/managers'">
+                <em class="fa fa-user"></em>
+            </a>
+        </li> -->
+        <!-- END user screen-->
+
+        <!-- START lock screen-->
+        <!-- <li class="nav-item d-none d-md-block">
+            <a class="nav-link"  title="Login screen" (click)=authService.SignOut()>
+                <em class="icon-lock-open"></em>
+            </a>
+        </li> -->
+        <!-- END lock screen-->
+    </ul>
+    <!-- END Left navbar-->
+    <!-- START Right Navbar-->
+    <ul class="navbar-nav flex-row">
+        <!-- START user info-->
+        <li class="has-user-block pr-3">
+            <app-userblock></app-userblock>
+        </li>
+        <!-- END user info-->
+
+        <!-- <li class="nav-item dropdown dropdown-list mr-4" dropdown>
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret d-flex align-items-center" dropdownToggle>
+                <em class="icon-bell"></em>
+                <span class="badge badge-danger">04</span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">
+                <div class="dropdown-item">
+                    <div class="list-group">
+                       <div class="list-group-item list-group-item-action">
+                          <div class="media">
+                             <div class="align-self-start mr-2">
+                                <em class="fab fa-twitter fa-2x text-info"></em>
+                             </div>
+                             <div class="media-body">
+                                <p class="m-0">New followers</p>
+                                <p class="m-0 text-muted text-sm">1 new follower</p>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="list-group-item list-group-item-action">
+                          <div class="media">
+                             <div class="align-self-start mr-2">
+                                <em class="fa fa-envelope fa-2x text-warning"></em>
+                             </div>
+                             <div class="media-body">
+                                <p class="m-0">New e-mails</p>
+                                <p class="m-0 text-muted text-sm">You have 10 new emails</p>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="list-group-item list-group-item-action">
+                          <div class="media">
+                             <div class="align-self-start mr-2">
+                                <em class="fa fa-tasks fa-2x text-success"></em>
+                             </div>
+                             <div class="media-body">
+                                <p class="m-0">Pending Tasks</p>
+                                <p class="m-0 text-muted text-sm">11 pending task</p>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="list-group-item list-group-item-action">
+                          <span class="d-flex align-items-center">
+                             <span class="text-sm">More notifications</span>
+                             <span class="badge badge-danger ml-auto">14</span>
+                          </span>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </li> -->
+    </ul>
+    <!-- END Right Navbar-->
+</nav>
+<!-- END Top Navbar-->

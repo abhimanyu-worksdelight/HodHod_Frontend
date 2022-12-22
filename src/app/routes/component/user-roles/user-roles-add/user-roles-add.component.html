@@ -1,0 +1,85 @@
+<!-- START card-->
+<div class="content-heading">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+       <span>Add user Role</span>
+        <button class="btn btn-primary d-flex align-items-center" [routerLink]="'/users/user-listing'" type="button">
+            <em _ngcontent-lgi-c20="" class="icon-arrow-left mr-1"></em> Back
+        </button>
+    </div>
+ </div><!-- START row-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- START card-->
+        <div class="card card-default">
+            <div class="card-body">
+                <form [formGroup]="valForm" class="form-validate" role="form" #dataPost="ngForm" (ngSubmit)= "addUserData($event, dataPost.value)" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>User name</label>
+                            <input ngModel required formControlName="name" class="form-control" name="name" type="text" placeholder="Enter user name" />
+                            <div class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">This field is required</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Phone</label>
+                            <input ngModel required formControlName="phone" class="form-control" name="phone" type="text" placeholder="Enter phone" />
+                            <div class="text-danger" *ngIf="valForm.controls['phone'].hasError('required') && (valForm.controls['phone'].dirty || valForm.controls['phone'].touched)">This field is required</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>Email</label>
+                            <input ngModel required [pattern]="emailPattern" formControlName="email" class="form-control" name="email" type="email" placeholder="Enter email" />
+                            <div class="text-danger" *ngIf="valForm.controls['email'].hasError('required') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field is required</div>
+                            <div class="text-danger" *ngIf="valForm.controls['email'].hasError('pattern') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">Please enter a valid email</div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <label>Password</label>
+                                    <input ngModel required formControlName="password" class="form-control" name="password" type="password" placeholder="Enter password" />
+                                    <div class="text-danger" *ngIf="valForm.controls['password'].hasError('required') && (valForm.controls['password'].dirty || valForm.controls['password'].touched)">This field is required</div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>Is Admin?</label>
+                                    <ui-switch ngModel formControlName="isAdmin"></ui-switch>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label>image</label>
+                                <label for="image-input" class="file-upload">
+                                    <button class="btn btn-secondary">
+                                    Select file  <em class="far fa-folder-open mr"></em></button>
+                                    <input ngModel formControlName="file" type="file" name="file" class="form-control" (input)="onFileChanged($event)" accept=".jpeg,.jpg,.png,.svg"> 
+                                    <span class="form-control" *ngIf="selectedFile?.name"> {{ selectedFile?.name }} </span>
+                                    <span class="form-control" *ngIf="!selectedFile?.name"> {{ fileName }} </span>
+                                </label>
+                                <div class="text-danger" *ngIf="valForm.controls['file'].hasError('required') && (valForm.controls['file'].dirty || valForm.controls['file'].touched)">This field is required</div>
+                            </div>
+                            <div class="image-preview-box">
+                                <img class="previewImage" [src]="fileUrl"  onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                <!-- Progress Bar -->
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm custom-spinner"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group ">
+                                <label>Role Type</label>
+                                <ngx-select class="custom-single-select" required  formControlName="roleType" name="roleType" optionValueField="id" optionTextField="text" 
+                                [multiple]="false" [items]="positionItems" [disabled]="disabled" placeholder="Select position"></ngx-select>
+                                <div class="text-danger" *ngIf="valForm.controls['roleType'].hasError('required') && (valForm.controls['roleType'].dirty || valForm.controls['roleType'].touched)">store is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-secondary mr-2" type="button" (click)="dataPost.resetForm({})">Clear</button>
+                    <button class="btn btn-sm btn-info" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+        <!-- END card-->
+    </div>
+</div>
+<!-- END row-->

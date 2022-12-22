@@ -1,0 +1,254 @@
+<div class="content-heading">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+        <span>System / General settings</span>
+    </div>
+ </div>
+<div class="b custom-tab-header">
+    <a href="javascript:void(0)" class="custom-tab-item" (click)="generalActive=1" [ngClass]="{'active': (generalActive == 1)}">General</a>
+    <a href="javascript:void(0)" class="custom-tab-item" (click)="generalActive=2" [ngClass]="{'active': (generalActive == 2)}">App pages</a>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <!-- general start -->
+            <div *ngIf="generalActive == 1">
+                <div class="general-area mt-4">
+                    <div class="card card-default">
+                        <div class="card-body">
+                            <form [formGroup]="valForm" class="form-validate" role="form" #dataPost="ngForm" (ngSubmit)= "updateGeneralData($event, dataPost.value)" *ngIf="GeneralData" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+                                <div class="d-flex align-items-center justify-content-end mb-2">
+                                    <button class="btn btn-success d-flex align-items-center ml-1" type="submit">
+                                        Save <span *ngIf="saveLoading" class="spinner-border spinner-border-sm ml-2"></span></button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Application name</label>
+                                                <input [(ngModel)]="GeneralData.application_name" required formControlName="applicationName" name="applicationName" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['applicationName'].hasError('required') && (valForm.controls['applicationName'].dirty || valForm.controls['applicationName'].touched)">שדה חובה</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Application name in arabic</label>
+                                                <input [(ngModel)]="GeneralData.application_name_arabic" formControlName="applicationName_arabic" name="applicationName_arabic" class="form-control" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="form-group">
+                                                    <label>Application logo</label>
+                                                    <label for="image-input" class="file-upload">
+                                                        <button class="btn btn-secondary">
+                                                        Select file  <em class="far fa-folder-open mr"></em></button>
+                                                        <input ngModel formControlName="applicationLogo" type="file" name="applicationLogo" class="form-control" (input)="onFileChanged($event, 'applicationLogo')" accept=".jpeg,.jpg,.png,.svg"> 
+                                                        <span class="form-control"> {{ applicationLogoUrl }} </span>
+                                                    </label>
+                                                </div>
+                                                <div class="image-preview-box">
+                                                    <img class="previewImage" [src]="applicationLogoUrl" onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="form-group">
+                                                    <label>Back office big logo</label>
+                                                    <label for="image-input" class="file-upload">
+                                                        <button class="btn btn-secondary">
+                                                        Select file  <em class="far fa-folder-open mr"></em></button>
+                                                        <input ngModel formControlName="backofficeBigLogo" type="file" name="backofficeBigLogo" class="form-control" (input)="onFileChanged($event, 'backofficeBigLogo')" accept=".jpeg,.jpg,.png,.svg"> 
+                                                        <span class="form-control"> {{ backofficeBigLogoUrl }} </span>
+                                                    </label>
+                                                </div>
+                                                <div class="image-preview-box">
+                                                    <img class="previewImage" [src]="backofficeBigLogoUrl" onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="form-group">
+                                                    <label>Back office small logo</label>
+                                                    <label for="image-input" class="file-upload">
+                                                        <button class="btn btn-secondary">
+                                                        Select file  <em class="far fa-folder-open mr"></em></button>
+                                                        <input ngModel formControlName="backofficeSmallLogo" type="file" name="backofficeSmallLogo" class="form-control" (input)="onFileChanged($event, 'backofficeSmallLogo')" accept=".jpeg,.jpg,.png,.svg"> 
+                                                        <span class="form-control"> {{ backofficeSmallLogoUrl }} </span>
+                                                    </label>
+                                                </div>
+                                                <div class="image-preview-box">
+                                                    <img class="previewImage" [src]="backofficeSmallLogoUrl" onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="form-group">
+                                                    <label>Empty Gift Image</label>
+                                                    <label for="image-input" class="file-upload">
+                                                        <button class="btn btn-secondary">
+                                                        Select file  <em class="far fa-folder-open mr"></em></button>
+                                                        <input ngModel formControlName="emptyGiftImage" type="file" name="emptyGiftImage" class="form-control" (input)="onFileChanged($event, 'emptyGiftImage')" accept=".jpeg,.jpg,.png,.svg"> 
+                                                        <span class="form-control"> {{ emptyGiftImageUrl }} </span>
+                                                    </label>
+                                                </div>
+                                                <div class="image-preview-box">
+                                                    <img class="previewImage" [src]="emptyGiftImageUrl" onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Android latest version number</label>
+                                                <input [(ngModel)]="GeneralData.android_version_number" required formControlName="androidVersionNumber" name="androidVersionNumber" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['androidVersionNumber'].hasError('required') && (valForm.controls['androidVersionNumber'].dirty || valForm.controls['androidVersionNumber'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>iOS latest version number</label>
+                                                <input [(ngModel)]="GeneralData.ios_version_number" required formControlName="iosVersionNumber" name="iosVersionNumber" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['iosVersionNumber'].hasError('required') && (valForm.controls['iosVersionNumber'].dirty || valForm.controls['iosVersionNumber'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>New contact us emails</label>
+                                                <input [(ngModel)]="GeneralData.new_contact_email" required formControlName="newContactEmail" name="newContactEmail" class="form-control" type="email" />
+                                                <div class="text-danger" *ngIf="valForm.controls['newContactEmail'].hasError('required') && (valForm.controls['newContactEmail'].dirty || valForm.controls['newContactEmail'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>All rights reserved text</label>
+                                                <input [(ngModel)]="GeneralData.right_reserved_text" required formControlName="rightReservedText" name="rightReservedText" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['rightReservedText'].hasError('required') && (valForm.controls['rightReservedText'].dirty || valForm.controls['rightReservedText'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>All rights reserved text in arabic</label>
+                                                <input [(ngModel)]="GeneralData.right_reserved_text_arabic" formControlName="rightReservedText_arabic" name="rightReservedText_arabic" class="form-control" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Google play URL</label>
+                                                <input [(ngModel)]="GeneralData.google_play_url" required formControlName="googlePlayUrl" name="googlePlayUrl" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['googlePlayUrl'].hasError('required') && (valForm.controls['googlePlayUrl'].dirty || valForm.controls['googlePlayUrl'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Apple store URL</label>
+                                                <input [(ngModel)]="GeneralData.apple_store_url" required formControlName="appleStoreUrl" name="appleStoreUrl" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['appleStoreUrl'].hasError('required') && (valForm.controls['appleStoreUrl'].dirty || valForm.controls['appleStoreUrl'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Phone country code</label>
+                                                <input [(ngModel)]="GeneralData.phone_country_code" required formControlName="phoneCountryCode" name="phoneCountryCode" class="form-control" type="text" />
+                                                <div class="text-danger" *ngIf="valForm.controls['phoneCountryCode'].hasError('required') && (valForm.controls['phoneCountryCode'].dirty || valForm.controls['phoneCountryCode'].touched)">This field is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="form-group">
+                                                    <label>Empty Food Image</label>
+                                                    <label for="image-input" class="file-upload">
+                                                        <button class="btn btn-secondary">
+                                                        Select file  <em class="far fa-folder-open mr"></em></button>
+                                                        <input ngModel formControlName="emptyFoodImage" type="file" name="emptyFoodImage" class="form-control" (input)="onFileChanged($event, 'emptyFoodImage')" accept=".jpeg,.jpg,.png,.svg"> 
+                                                        <span class="form-control"> {{ emptyFoodImageUrl }} </span>
+                                                    </label>
+                                                </div>
+                                                <div class="image-preview-box">
+                                                    <img class="previewImage" [src]="emptyFoodImageUrl" onerror="this.onerror=null;this.src='assets/img/preview-img.png';"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- general end -->
+
+            <!-- apppages start -->
+            <div *ngIf="generalActive == 2">
+                <div class="app-pages-area mt-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="card card-default b mb-2" *ngFor="let appPagesItem of AppPages">
+                                <div class="card-body p-2">
+                                    <div class="w-100 d-flex justify-content-between align-items-center">
+                                        <label class="mb-0 pl-2">{{appPagesItem.template_name}}</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-info comn-action-btn" (click)="onEditAppPagesEditBtn(appPagesItem.id, appPagesItem)" type="button">
+                                                <em _ngcontent-lgi-c20="" class="fas fa-edit"></em>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="card" [hidden]="appPagesEdit">
+                                <div class="card-body">
+                                    <form [formGroup]="valApppagesForm" class="form-validate" role="form" #dataPost="ngForm" (ngSubmit)= "onEditAppPages($event, dataPost.value)" *ngIf="appPagesDataDetail" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+                                        <div class="row my-3">
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-between">
+                                                    <h4 class="mb-4">{{appPagesDataDetail.template_name}}</h4>
+                                                    <div class="d-flex align-items-center">
+                                                        <button class="btn btn-info d-flex align-items-center ml-1" (click)="onEditAppPagesCloseBtn()" type="button">Close</button>
+                                                        <button class="btn btn-success d-flex align-items-center ml-1" type="submit">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label>Title (ENGLISH)</label>
+                                                        <input [(ngModel)]="appPagesDataDetail.title" required formControlName="title" name="title" class="form-control" type="text" />
+                                                        <div class="text-danger" *ngIf="valApppagesForm.controls['title'].hasError('required') && (valApppagesForm.controls['title'].dirty || valApppagesForm.controls['title'].touched)">This field is required</div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label>Title (ARABIC)</label>
+                                                        <input [(ngModel)]="appPagesDataDetail.title_arabic" formControlName="title_arabic" name="title_arabic" class="form-control" type="text" />
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label>Text (ENGLISH)</label>
+                                                        <ckeditor [(ngModel)]="appPagesDataDetail.description" required formControlName="description" name="description" data="{{appPagesDataDetail.description}}"></ckeditor>
+                                                        <div class="text-danger" *ngIf="valApppagesForm.controls['description'].hasError('required') && (valApppagesForm.controls['description'].dirty || valApppagesForm.controls['description'].touched)">This field is required</div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label>Text (ARABIC)</label>
+                                                        <ckeditor [(ngModel)]="appPagesDataDetail.description_arabic" formControlName="description_arabic" name="description_arabic" data="{{appPagesDataDetail.description_arabic}}"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- apppages end -->
+
+        </div>
+    </div>
+</div>

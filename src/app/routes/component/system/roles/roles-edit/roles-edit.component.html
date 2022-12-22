@@ -1,0 +1,33 @@
+<!-- START card-->
+<div class="content-heading">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+       <span>Edit Roles</span>
+        <button class="btn btn-primary d-flex align-items-center" [routerLink]="'/system/roles-list'" type="button">
+            <em _ngcontent-lgi-c20="" class="icon-arrow-left mr-1"></em> Back
+        </button>
+    </div>
+</div><!-- START row-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- START card-->
+        <div class="card card-default">
+            <div class="card-body">
+                <form [formGroup]="valForm" class="form-validate" role="form" #dataPost="ngForm"
+                    (ngSubmit)="editHomeSections($event, dataPost.value)" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+                    <div class="form-row">
+                        <div class="col-lg-12">
+                            <label>Role type</label>
+                            <input class="form-control with-focus" [(ngModel)]="RolesData.name" required formControlName="name" type="text" placeholder="Enter name" />
+                            <div class="text-danger"
+                                *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">
+                                Name is required</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-info mt-2" type="submit">Save<span *ngIf="saveLoading" class="spinner-border spinner-border-sm ml-2"></span></button>
+                </form>
+            </div>
+        </div>
+        <!-- END card-->
+    </div>
+</div>
+<!-- END row-->

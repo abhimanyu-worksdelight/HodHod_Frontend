@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+//== Vendor
+@import '~@fortawesome/fontawesome-free/css/brands.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~simple-line-icons/css/simple-line-icons.css';
+
+@import '~spinkit/css/spinkit.css';
+@import '~loaders.css/loaders.css';
+
+@import '~ngx-toastr/toastr.css';
+
+@import '~ng2-dnd/bundles/style.css';
+
+@import '~ag-grid-community/dist/styles/ag-grid.css';
+@import '~ag-grid-community/dist/styles/ag-theme-fresh.css';
+
+@import '~ika.jvectormap/jquery-jvectormap-1.2.2.css';
+
+@import '~jqcloud2/dist/jqcloud.css';
+
+@import '~summernote/dist/summernote.css';
+@import '~ngx-ui-switch/ui-switch.component.scss';
+//== Bootstrap
+@import "./app/shared/styles/bootstrap.scss";
+//== Application
+@import "./app/shared/styles/app.scss";

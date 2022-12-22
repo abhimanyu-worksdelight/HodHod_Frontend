@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    .card {
+        .card-header {
+            background-color: #EB2355 !important;
+            color: #fff !important;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            font-size: 22px;
+        }
+    }
+    
+}

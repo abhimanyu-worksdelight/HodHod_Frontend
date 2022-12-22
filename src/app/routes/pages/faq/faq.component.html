@@ -1,0 +1,14 @@
+<div class="content-heading">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+         <h3>Frequently Asked Questions</h3>
+    </div>
+ </div>
+
+<div class="accordion">
+    <div *ngFor="let faq of FAQList; let index='index'" class="accordion-parent-{{index}}" (click)="onAccordionClick('accordion-parent-'+ index)">
+        <a class="accordion-item">{{faq.data.question}}</a>
+        <div class="content accordion-item">
+            <p [innerHTML]="faq.data.answer | trustHTML" ></p>
+        </div>
+    </div>
+</div>

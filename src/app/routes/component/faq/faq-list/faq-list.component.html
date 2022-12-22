@@ -1,0 +1,52 @@
+<div class="content-heading">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+        <span>FAQ</span>
+        <button class="btn btn-primary d-flex align-items-center" [routerLink]="'/faq-manager/add'" type="button">
+            <em _ngcontent-lgi-c20="" class="icon-plus mr-1"></em> Add New
+        </button>
+    </div>
+</div>
+<div class="card card-default">
+    <div class="spinner-border loading" role="status" *ngIf="FAQList == null || FAQList == ''"></div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-lg-4">
+                <input type='text' class="form-control" placeholder='Type to filter question...'
+                    (keyup)='updateFilter($event)' />
+            </div>
+        </div>
+        <ngx-datatable #table class='bootstrap no-detail-row' [scrollbarH]="true" [columnMode]="'force'"
+            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='filteredData'>
+            <ngx-datatable-column [maxWidth]="50" name="Sr. No." prop="sr_no"></ngx-datatable-column>
+            <ngx-datatable-column [canAutoResize]="false" name="Actions" sortable="false" prop="id">
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                    <div class="d-flex align-items-center">
+                        <button class="mr-1 btn btn-success comn-action-btn mb-1"
+                            routerLink="/faq-manager/edit/{{value}}" type="button">
+                            <em _ngcontent-lgi-c20="" class="fas fa-edit"></em>
+                        </button>
+                        <button class="mr-1 btn btn-danger comn-action-btn mb-1" type="button"
+                            (click)="deleteFAQ(value)">
+                            <em _ngcontent-lgi-c20="" class="fas fa-trash-alt"></em>
+                        </button>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column [width]="180" name="Unique Id" prop="id"></ngx-datatable-column>
+            <ngx-datatable-column [canAutoResize]="false" name="Question" prop="question"></ngx-datatable-column>
+            <ngx-datatable-column name="Answer" prop="answer">
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                    <p [innerHTML]="value | trustHTML"></p>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column [canAutoResize]="false" name="Question (ARABIC)" prop="question_arabic">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Answer (ARABIC)" prop="answer_arabic">
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                    <p [innerHTML]="value | trustHTML"></p>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+    </div>
+</div>

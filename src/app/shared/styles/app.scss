@@ -1,0 +1,480 @@
+/*!
+ *
+ * Angle - Bootstrap Admin Template
+ *
+ * Version: 4.8
+ * Author: @themicon_co
+ * Website: http://themicon.co
+ * License: https://wrapbootstrap.com/help/licenses
+ *
+ */
+
+// Bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+// Variables
+@import "app/variables";
+// Layout
+@import "app/layout";
+@import "app/layout-extra";
+@import "app/layout-animation";
+@import "app/top-navbar";
+@import "app/sidebar";
+@import "app/offsidebar";
+@import "app/user-block";
+
+// Common
+@import "app/typo";
+@import "app/bootstrap-reset";
+@import "app/bootstrap-custom";
+@import "app/button-extra";
+@import "app/placeholder";
+@import "app/cards";
+@import "app/circles";
+@import "app/dropdown-extra";
+@import "app/half-float";
+@import "app/animate";
+@import "app/slim-scroll";
+@import "app/inputs";
+@import "app/utils";
+@import "app/print";
+// Elements
+@import "app/spinner";
+
+// Form elements
+@import "app/form-select2";
+@import "app/form-tags-input";
+@import "app/file-upload";
+@import "app/summernote";
+@import "app/typeahead";
+
+// Tables
+@import "app/table-extras";
+@import "app/table-angulargrid";
+
+// ngx datatable start--------------------
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+@import 'bootstrap/_functions';
+@import 'bootstrap/_variables';
+@import 'app/variables';
+
+.ngx-datatable.bootstrap {
+    background-color: transparent;
+    box-shadow: 0 0 0 #000;
+}
+.ngx-datatable.scroll-vertical {
+    height: 300px;
+}
+// workaround for use of detail rows
+// with other table in the same page
+.no-detail-row .datatable-row-detail {
+    display: none !important;
+}
+// change color of active cells selected
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active, .ngx-datatable.bootstrap.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: $primary !important;
+    .datatable-body-cell {
+        color: #fff;
+    }
+}
+// remove link decoration
+.datatable-icon-right {
+    text-decoration: none !important;
+}
+// align table with no data legend
+.ngx-datatable.bootstrap .empty-row {
+    text-align: center;
+    margin-top: 20px;
+}
+// tabele footer
+.ngx-datatable.bootstrap .datatable-footer {
+    background-color: transparent;
+    color: $body-color;
+}
+// table pagination
+
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+    color: #111111;
+}
+.pager li > a, .pager li > span {
+    border-color: #EB2355;
+}
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a, .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+    background-color: #EB2355;
+    border-color: #EB2355;
+    color: #fff;
+}
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+    border: 0;
+}
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+// ngx datatable end--------------------
+
+// navtree css start--------------------
+@import '~@circlon/angular-tree-component/css/angular-tree-component.css';
+
+.node-wrapper{
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 2px;
+    padding: 5px 10px !important;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+tree-root select{
+    border: 1px solid #CFDBE2 !important;
+    width: 135px !important;
+    background: #F5F7FA !important;
+}
+.node-content-wrapper{
+    width: 100%;
+}
+tree-node-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+// navtree css end--------------------
+
+// commom css
+.main-bg-color{
+    background-color: $main-app-color !important;
+}
+.main-text-color{
+    color: $main-app-color !important;
+}
+.auth-logo{
+    height: 35px;
+}
+.comn-action-btn{
+    padding: 2px 5px !important;
+}
+.media{
+    width: 36px !important;
+}
+.media img{
+    object-fit: contain !important;
+}
+input, select{
+    border-left: 2px solid #EB2355 !important;
+}
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid #3498db;
+    animation: spin 2s linear infinite;
+}
+    
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.image-preview-box{
+    position: relative;
+    width: 150px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+.custom-spinner{
+    position: absolute;
+    right: 42%;
+    top: 40%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 4px solid #f3f3f3;
+    border-top-color: #3498db;
+    justify-content: center;
+}
+.previewImage{
+    width: 152px;
+    height: 85px;
+    object-fit: fill;
+}
+.file-upload button{
+    position: absolute;
+    right: 0;
+    height: 36px;
+    border-radius: 0px 0.25rem 0.25rem 0px !important;
+    border: 0px !important;
+    border-left: 1px solid #dde6e9 !important;
+    background: #EEEEEE;
+}
+.file-upload{
+    border-left: 2px solid #EB2355 !important;
+    border: 1px solid #dde6e9;
+    border-radius: 0.25rem;
+    height: 36px;
+    position: relative;
+}
+.listImage{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    object-fit: contain;
+    background-color: #fff;
+}
+.previewImage{
+    width: 150px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+a,a:hover{
+    text-decoration: none;
+    cursor: pointer !important;
+}
+.custom-single-select .ngx-select__toggle,
+.custom-single-select input{
+    border-left: 2px solid #EB2355 !important;
+}
+.ngx-select_multiple .ngx-select__search:focus {
+    border-color: #EB2355 !important;
+}
+.ngx-select.dropdown.ngx-select_multiple.form-control,
+textarea{
+    border-left: 2px solid #eb2355 !important;
+}
+// time picker custom css
+.ngx-timepicker-control__input{
+    border-left: 0px solid #0000 !important;
+}
+.ngx-timepicker{
+    border: 1px solid rgba(0,0,0,.12) !important;
+    border-left: 2px solid #0000 !important;
+    border-radius: 0.25rem !important;
+}
+.ngx-timepicker input{
+    border-left: 0px !important;
+}
+.ngx-timepicker button:focus{
+    outline: 0px !important;
+    border: 0px !important;
+}
+// .ngx-material-timepicker-toggle{
+//     background-color: #eee !important;
+//     border-top-right-radius: 0.25rem !important;
+//     border-bottom-right-radius: 0.25rem !important;
+//     border-top-left-radius: 0rem !important;
+//     border-bottom-left-radius: 0rem !important;
+// }
+.ngx-timepicker {
+    border: 0px solid rgba(0, 0, 0, 0.12) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-left: 0px solid #0000 !important;
+    border-radius: 0 !important;
+}
+ngx-timepicker-field .ngx-timepicker-control{
+    width: 100% !important;
+}
+ngx-material-timepicker-content input {
+    border-left: 2px solid #0000 !important;
+}
+.timepicker__header, 
+.clock-face__number.clock-face__number--inner.ng-star-inserted span.active,
+.clock-face__number.clock-face__number--outer.ng-star-inserted span.active
+{
+    background-color: #EB2355 !important;
+}
+ngx-material-timepicker-button .timepicker-button span{
+    color:#EB2355 !important;
+}
+.inputInstractionsText{
+    font-size: 11px !important;
+}
+// custom tab start-----
+.custom-tab-header{
+    margin: -20px;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+    border-top: 0px !important;
+    background: #fff;
+    height: 60px;
+}
+.custom-tab-item{
+    background: #fff;
+    border: 0.5px solid #CFDBE2;
+    padding: 12px 25px;
+    color: #515253 !important;
+    border-bottom: 0px !important;
+    border-right: 1px solid #CFDBE2 !important;
+}
+.custom-tab-item.active{
+    background: #F5F7FA;
+}
+// custom tab end-----
+.inputInstractionsText{
+    font-size: 11px !important;
+}
+ngx-select input{
+    border-left: 0px !important;
+}
+.user-block-status img{
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
+}
+.gm-svpc{
+    display: none !important;
+}
+app-sidebar,
+.aside-container{
+    z-index: 9999 !important;
+}
+.layout-fixed .wrapper .section-container {
+    margin-top: 0px !important;
+}
+
+// sidebar css start
+.navbar-header{
+    text-align: center;
+}
+.aside-container .navbar-brand{
+    margin-bottom: 20px;
+}
+.sidebar .brand-logo-collapsed .sidebar-single-logo{
+    height: 30px !important;
+    display: none;
+}
+.sidebar .brand-logo .sidebar-logo{
+    height: 125px !important;
+}
+.aside-collapsed .sidebar .brand-logo-collapsed .sidebar-single-logo{
+    display: block !important;
+}
+.aside-collapsed .sidebar .brand-logo .sidebar-logo{
+    display: none !important;
+}
+// sidebar css end
+.dashboard-card-top{
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    background: #ffffff;
+}
+.dashboard-card-bottom{
+    border-bottom-left-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    background: #ffffff;
+}
+.dashboard-active-card .dashboard-card-top{
+    background: #EB2355 !important;
+}
+.dashboard-active-card .dashboard-card-bottom{
+    background: #EB2355 !important;
+}
+.dashboard-card{
+    border-radius: 25px !important;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 5%) !important;
+}
+.dashboard-arrow-icon{
+    background: #DFFFEC;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    transform: rotate(45deg);
+    font-weight: 600;
+    color: #e86683 !important;
+}
+.dashboard-active-card .dashboard-arrow-icon{
+    background:#e86683;
+    color: #ffffff !important;
+}
+.dashboard-card-icon{
+    font-size: 25px;
+    color: #EB2355;
+}
+.dashboard-card-heading{
+    color: #888888;
+    font-size: 16px;
+    font-weight: 100;
+}
+.dashboard-card-count{
+    color: #323232;
+    font-size: 44px;
+    font-weight: 700;
+}
+.dashboard-active-card .dashboard-card-icon{
+    font-size: 25px;
+    color: #ffffff;
+}
+.dashboard-active-card .dashboard-card-heading{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 100;
+}
+.dashboard-active-card .dashboard-card-count{
+    color: #ffffff;
+    font-size: 44px;
+    font-weight: 700;
+}
+.card-default{
+    border-radius: 25px !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 5%) !important;
+}
+.card-default .card-header{
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+}
+.page-count{
+    display: none !important;
+}
+.datatable-pager{
+    text-align: center !important;
+}
+.commission-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.commission-box select{
+    position: absolute;
+    width: 50px;
+    padding: 0px;
+    right: 5px;
+    border-radius: 0px 0.25rem 0.25rem 0px;
+    border-left: 1px solid #dde6e9 !important;
+    text-align: center;
+}
+.fullLoaderBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.fullLoader{
+    position: absolute;
+    left: 48%;
+    top: 250px;
+    z-index: 999;
+    color: #1697be;
+    width: 45px;
+    height: 45px;
+}
