@@ -1,0 +1,276 @@
+.giftdetail_card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 20px;
+}
+.qrdetail_box {
+    display: flex;
+    align-items: center;
+     background: #F9F9F9;
+    padding: 15px;
+    border-radius: 15px;
+}
+.qr_img {
+    width: 35%;
+    text-align: center;
+}
+.qr_img img
+{
+    width: 100px;
+    height: 100px;
+    
+}
+.qr_content {
+    padding: 0 15px;
+    text-align: center;
+    position: relative;
+    border-left: 1px dashed var(--color_coal);
+    width: calc(100% - 35%);
+}
+
+.qr_content:before
+{
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    background: url(../../../assets/top-radius.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.qr_content:after
+{
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 100%;
+    background: url(../../../assets/bottom-radius.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.qr_content p{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color_coal);
+    margin-bottom: 5px;
+}
+.qr_content h5
+{
+    color:var(--color_coal);
+    font-weight: 600;
+    font-size: 18px;
+}
+.primary_color
+{
+    color:var(--color_primary) !important;
+}
+.giftdetail_img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+}
+.giftdetail_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gift_external_link p
+{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.gift_external_link svg,
+.gift_external_link .mapmodal
+{
+    color: var(--color_primary);
+}
+
+.giftdetail_head {
+    background: rgba(237, 61, 105, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--color_primary);
+}
+
+.giftdetail_body {
+    padding: 40px;
+}
+.back-to-page {
+    text-align: center;
+    margin-bottom: 21px;
+    color: var(--color_coal);
+}
+
+
+/*** Code Generate Popup ****/
+
+
+
+#appriciateGift .modal-body
+{
+    padding: 40px
+}
+
+
+.cg_icon_box {
+    width: 60px;
+    height: 60px;
+    background: var(--color_primary);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 72px;
+    font-size: 38px;
+    color: #fff;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.code_genrated_card {
+    text-align: center;
+}
+.copy_code_card
+{
+    display: flex;
+    justify-content: center;
+}
+.copy_code_input {
+    width: calc(90% - 50px);
+    margin-right: 15px;
+}
+.copy_code_input .form-control {
+    background: #F3F3F3;
+    border-radius: 5px;
+    outline: 0 !important;
+    box-shadow: none   !important;
+    min-height: 40px;
+
+}
+
+.copy_code_btn {
+    width: 50px;
+    height: 40px;
+    line-height:40px;
+    background: var(--color_primary);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.speration_box {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social_share_btns {
+    display: flex;
+    justify-content: space-around;
+}
+.social_btn {
+    padding: 4px 10px;
+    background: transparent;
+    display: inline-block;
+    border: 1px solid var(--color_border);
+    border-radius: 15px;
+    display: flex;
+    align-items: center; 
+    font-weight: 600;
+    font-size: 14px;
+}
+.social_btn  svg
+{
+    margin-right:5px
+}
+.facbook_btn {
+    color: #0b57b2;
+}
+.insta_btn {
+    color: #c58c0f;
+}
+.whatsapp_btn {
+    color: #4c9f1d;
+}
+.email_btn {
+    color: #323232;
+}
+.close_modal {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    line-height: 30px;
+    border: 2px solid #858585;
+    background: #fff;
+}
+
+.appriciate_img
+{
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+}
+
+.occasion_section {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.occasion_box h4,
+.payment_card h4
+{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.occasion_radio
+{
+    text-align: center;
+    width: 90px;
+    position: relative;
+    margin-right: 15px;
+}
+.occasion_img_box p
+{   
+    margin-bottom: 0;
+}
+.occasion_icon
+{
+    width: 80px;
+    height: 70px;
+    background: #FBFBFB;
+    border-radius: 16px;
+    text-align: center;
+    line-height: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 27px;
+    color: #999;
+}
+.occasion_radio_box
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.active_occassion .occasion_icon
+{
+    background: rgba(237, 61, 105, 0.09);    
+    border: 0.5px solid #ED3D69;
+}
+.active_occassion p,
+.active_occassion svg
+{
+    color: var(--color_primary);
+}

@@ -1,0 +1,129 @@
+<!-- <app-header (notify)="onCitySelectChange($event)"></app-header> -->
+
+<section class="breadcum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item"><a href="#">My Gifts</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Gift Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="gifts-section">
+    <div class="container">        
+        <div class="row align-items-center justify-content-center mt-5 section_row">           
+            
+            <div class="col-12 col-md-11 col-lg-9 col-xl-8 mb-5">
+                <div class="back-to-page">
+                    <i class="fas fa-arrow-left"></i> BACK TO MY GIFTS
+                </div>
+                <div class="giftdetail_card">
+                    <div class="giftdetail_head">
+                        There's a present for you from Jason
+                    </div>
+                    <div class="giftdetail_body">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-12 col-lg-5">
+                                <div class="giftdetail_img">
+                                    <img src="../../assets/p1.png"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <div class="qrdetail_box">
+                                    <div class="qr_img">
+                                        <img src="../../assets/qr.png"/>
+                                    </div>
+                                    <div class="qr_content">
+                                        <p>Unique identifier</p>
+                                        <h5 class="primary_color">153K - 418P - 418U - 9834</h5>
+                                        <h5 >PIN-код: 3701</h5>
+                                        <p>To be used within: 16 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>
+                                    About
+                                </h4>
+                                <p>Pizza quattro stagioni (four seasons pizza) is a variety of pizza in Italian cuisine that is prepared in four sections with diverse ingredients, with each section representing one season of the year.</p>
+                            </div>                            
+                        </div>
+                        <div class="row gift_external_link align-items-center mt-3  mt-md-5">
+                            <div class="col-12 col-md-8 mb-4 mb-md-0 ">
+                               <p class="mapmodal"data-bs-toggle="modal" data-bs-target="#mapModal"> 
+                                   <i class="fa fa-map-marker-alt me-2"> </i>Watch where you get a gift
+                                </p>                               
+                            </div>
+                            <div class="col-12 col-md-4 ">
+                                <button class="base_btn base_block base_primary" data-bs-toggle="modal" 
+                                data-bs-target="#appriciateGift">Say Thanks</button>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="appriciateGift" tabindex="-1" aria-labelledby="appriciateGiftLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">      
+        <div class="modal-body">
+            <button type="button" class="close_modal" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="code_genrated_card">
+                <img src="../../assets/p1.png" class="appriciate_img">
+                <h4>Appreciate the gift from Jason</h4>   
+                <div class="occasion_box">
+                    <div class="occasion_section mt-3">
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fa fa-face-frown"></i>
+                                </div>
+                                <p>Don't do that</p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="appriciate" id="Birthday" checked>                                
+                        </div>
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fa fa-face-smile"></i>
+                                </div>
+                                <p>Thank you </p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="appriciate" id="Anniversary" checked>
+                            
+                        </div>
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fa fa-face-grin-hearts"></i>
+                                </div>
+                                <p>Love you</p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="appriciate" id="Others" checked>
+                            
+                        </div>
+                    </div>
+                </div> 
+                <button class="base_btn base_primary mt-5" data-bs-toggle="modal" 
+                    data-bs-target="#appriciateGift">Submit
+            </button>           
+            </div>
+        </div>       
+      </div>
+    </div>
+</div>

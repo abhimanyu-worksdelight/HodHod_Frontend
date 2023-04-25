@@ -1,0 +1,206 @@
+<section class="breadcum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="checkout-section">
+    <div class="container">        
+        <div class="row section_row">
+            <div class="col-12 col-md-7 col-lg-8">  
+                <h3>Order Summary</h3>
+                <div class="checkout_card">
+                    <div class="cart_list">
+                        <div class="cart_product_img">
+                            <img src="{{productDetail?.data?.image}}">
+                        </div>
+                        <div class="cart_product_content">
+                            <h4>{{productDetail?.data?.description}}</h4>
+                            <div class="cart_product_row">
+                                <div class="cart_product_price">
+                                    Price: <span>{{productDetail?.data?.price}} SAR</span>
+                                </div>
+                                <div class="cart_product_qty">
+                                    Quantity: <span>{{quantity}}</span>
+                                </div>
+                            </div>
+                            <p>France Restaurant</p>
+                        </div>
+                    </div>
+                    <div class="occasion_box">
+                        <h4>Choose Occasion</h4>
+                        <div class="occasion_section mt-3">
+                            <div class="occasion_radio">
+                                <div class="occasion_img_box">
+                                    <div class="occasion_icon">
+                                        <i class="fas fa-birthday-cake"></i>
+                                    </div>
+                                    <p>Birthday</p>
+                                </div>
+                                <input class="form-check-input occasion_radio_box" type="radio" name="Occasion" id="Birthday" checked>                                
+                            </div>
+                            <div class="occasion_radio">
+                                <div class="occasion_img_box">
+                                    <div class="occasion_icon">
+                                        <i class="fas fa-ring"></i>
+                                    </div>
+                                    <p>Anniversary</p>
+                                </div>
+                                <input class="form-check-input occasion_radio_box" type="radio" name="Occasion" id="Anniversary" checked>
+                                
+                            </div>
+                            <div class="occasion_radio">
+                                <div class="occasion_img_box">
+                                    <div class="occasion_icon">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <p>Others</p>
+                                </div>
+                                <input class="form-check-input occasion_radio_box" type="radio" name="Occasion" id="Others" checked>
+                                
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="checkout_total_card">
+                    <div class="checkout_total_row">
+                        <div class="checkout_grand_title">Sub total</div>
+                        <div class="checkout_grand_amt">{{totalPrice}} SAR</div>
+                    </div>
+                    <div class="checkout_total_row">
+                        <div class="checkout_grand_title">Tax</div>
+                        <div class="checkout_grand_amt">0.0 SAR</div>
+                    </div>
+                    <div class="checkout_total_row net_amount_row">
+                        <div class="checkout_grand_title">Total</div>
+                        <div class="checkout_grand_amt ">{{totalPrice}} SAR</div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-12 col-md-5 col-lg-4 mb-5">  
+                <h3>Payment Details</h3>
+                <div class="payment_card">
+                    <h4>Choose Payment Method</h4>
+                    <div class="occasion_section mt-3 mb-4">
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fab fa-apple-pay" style="font-size:32px; margin-top: 13px;"></i> 
+                                </div>
+                                <p>Apple pay</p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="payment_check" id="Applepay" checked>                                
+                        </div>
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <p>Credit Card</p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="payment_check" id="Creditcard" >                            
+                        </div>
+                        <div class="occasion_radio">
+                            <div class="occasion_img_box">
+                                <div class="occasion_icon">
+                                    <i class="fas fa-money-check"></i>
+                                </div>
+                                <p>STC Pay</p>
+                            </div>
+                            <input class="form-check-input occasion_radio_box" type="radio" name="payment_check" id="STCPay" >                            
+                        </div>
+                    </div>
+                    <h4>Card Details</h4>
+                    <div class="payment_card_form">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label>Card number</label>
+                                <input type="text" class="form-control" placeholder="0000 0000 0000 0000" value="2222 2234 3233 3434">
+                            </div>
+                            <div class="col-12 col-md-7 mb-3">
+                                <label>Valid until</label>
+                                <div class="payment_expriy_box">
+                                    <select class="form-control month_input"><option>Month</option>
+                                        <option>Jan</option><option>Feb</option><option>Mar</option><option>Apr</option>
+                                        <option>May</option><option selected>Jun</option><option>Jul</option><option>Aug</option>
+                                        <option>Sep</option><option>Oct</option><option>Nov</option><option>Dec</option>
+                                    </select>
+                                    <select class="form-control year_input"><option>Year</option>
+                                        <option>22</option><option selected>23</option><option>24</option><option>25</option>
+                                        <option>26</option><option>27</option><option>28</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-5 mb-3">
+                                <label>CVV</label>
+                                <input type="text" class="form-control" placeholder="000" value="533">
+                            </div>
+                            <div class="col-12  mb-3">
+                                <label>Card holder</label>
+                                <input type="text" class="form-control" placeholder="Your name" value="Pardeep">
+                            </div>
+
+                            <div class="col-12  mb-3">
+                                <button class="base_btn base_block base_primary mt-3" data-bs-toggle="modal" data-bs-target="#codeGenerated">Pay </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="codeGenerated" tabindex="-1" aria-labelledby="codeGeneratedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">      
+        <div class="modal-body">
+            <button type="button" class="close_modal" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="code_genrated_card">
+                <div class="cg_icon_box">
+                    <i class="fa fa-check"></i>
+                </div>
+                <p>Product purchased successfully. You can copy & share code to anyone.</p>
+                <div class="copy_code_card">
+                    <div class="copy_code_input">
+                        <input type="text" class="form-control" value="C3nijlTEb5QJqUh7oaBlBN/GIFT-TO?node-id=42%3A110">
+                    </div>
+                    <div class="copy_code_btn">
+                          <i class="fa fa-copy"></i>  
+                    </div>
+                </div>
+            </div>
+            <div class="speration_box">
+                or share with
+            </div>
+            <div class="social_share_btns">
+                <div class="social_btn facbook_btn">
+                    <i class="fab fa-facebook-f"></i> <span>Facebook</span>
+                </div>
+                <div class="social_btn insta_btn">
+                    <i class="fab fa-instagram"></i> <span>Instagram</span>
+                </div>
+                <div class="social_btn whatsapp_btn">
+                    <i class="fab fa-whatsapp"></i> <span>Whatsapp</span>
+                </div>
+                <div class="social_btn email_btn">
+                    <i class="fa fa-envelope"></i> <span>Email</span>
+                </div>
+            </div>
+        </div>       
+      </div>
+    </div>
+  </div>

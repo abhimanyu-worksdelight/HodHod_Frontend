@@ -1,0 +1,344 @@
+<!-- <app-header (notify)="onCitySelectChange($event)"></app-header> -->
+
+<section class="breadcum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">My Gifts</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="gifts-section">
+    <div class="container">        
+        <div class="row align-items-center section_row">
+            <div class="col-12 col-md-8 col-lg-9">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="received-tab" data-bs-toggle="pill" data-bs-target="#received" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Received</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="bought-tab" data-bs-toggle="pill" data-bs-target="#bought" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bought</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="send-tab" data-bs-toggle="pill" data-bs-target="#send" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Send</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="giftsearch_card">
+                    <input type="text" class="form-control" placeholder="Search Gifts">
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="tab-content mb-5" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="received" role="tabpanel" aria-labelledby="received-tab">
+                        <div class="gift_list_card">
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p1.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Bouquet of beautiful roses</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p2.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Mcdonald’s Burger </h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p3.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Lemon Cocktail</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bought" role="tabpanel" aria-labelledby="bought-tab">
+                        <div class="gift_list_card">
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p1.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Bouquet of beautiful roses</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p2.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Mcdonald’s Burger </h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p3.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Lemon Cocktail</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="send" role="tabpanel" aria-labelledby="send-tab">
+                        <div class="gift_list_card">
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p1.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Bouquet of beautiful roses</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p2.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Mcdonald’s Burger </h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="gift_list_row">
+                                <div class="gift_title_card">
+                                    <div class="gift_list_img">
+                                        <img src="../../assets/p3.png">
+                                    </div>
+                                    <div class="gift_list_title">
+                                        <h4>Lemon Cocktail</h4>
+                                        <h5>Is valid until <span>08.10.2020</span></h5>
+                                    </div>
+                                </div>
+                                <div class="gift_detail_card">
+                                    <div class="gift_list_date_time">
+                                        <p>Date & Time</p>
+                                        <h5>10/04/2022 10:11AM</h5>
+                                    </div>
+                                    <div class="gift_list_sentby">
+                                        <p>Sent by</p>
+                                        <h5>Jason Roy</h5> 
+                                    </div>
+                                </div>
+                                <div class="gift_list_redeem">
+                                    <button class="base_btn_sm base_coal me-2">Redeem</button>
+                                    <button class="base_btn_sm base_coal_o" data-bs-toggle="modal" data-bs-target="#codeGenerated">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </div>            
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="codeGenerated" tabindex="-1" aria-labelledby="codeGeneratedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">      
+        <div class="modal-body">
+            <button type="button" class="close_modal" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="code_genrated_card">
+                <div class="cg_icon_box">
+                    <i class="fa fa-check"></i>
+                </div>
+                <p>Product purchased successfully. You can copy & share code to anyone.</p>
+                <div class="copy_code_card">
+                    <div class="copy_code_input">
+                        <input type="text" class="form-control" value="C3nijlTEb5QJqUh7oaBlBN/GIFT-TO?node-id=42%3A110">
+                    </div>
+                    <div class="copy_code_btn">
+                          <i class="fa fa-copy"></i>  
+                    </div>
+                </div>
+            </div>
+            <div class="speration_box">
+                or share with
+            </div>
+            <div class="social_share_btns">
+                <div class="social_btn facbook_btn">
+                    <i class="fab fa-facebook-f"></i> <span>Facebook</span>
+                </div>
+                <div class="social_btn insta_btn">
+                    <i class="fab fa-instagram"></i> <span>Instagram</span>
+                </div>
+                <div class="social_btn whatsapp_btn">
+                    <i class="fab fa-whatsapp"></i> <span>Whatsapp</span>
+                </div>
+                <div class="social_btn email_btn">
+                    <i class="fa fa-envelope"></i> <span>Email</span>
+                </div>
+            </div>
+        </div>       
+      </div>
+    </div>
+</div>

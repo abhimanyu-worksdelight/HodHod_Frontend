@@ -1,0 +1,218 @@
+<section class="hero-section section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <div class="hero-content">
+                    <h1>Creating <span>Happiness</span> for your Loved ones.</h1>
+                    <p>Browse some of the largest collection of gifts to brighten your day.</p>
+                    <a href="#trendingProducts"><button class="base_btn base_primary mt-4">Choose your Gift</button></a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="hero-img_box">
+                    <img src="../../assets/img1.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="categories-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="categories_box">
+                    <div class="left_arrow">
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="right_arrow">
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                    <ngx-slick-carousel
+                        class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)"
+                    >
+                        <div ngxSlickItem *ngFor="let catslide of categoryslides" class="slide cursor-pointer">
+                            <div class="category_item" routerLink="/product-list/{{catslide.id}}">
+                                <div class="category_item_img" [ngStyle]="{'background-color': catslide.color}">
+                                    <img src="{{ catslide.image }}" />
+                                </div>
+                                <h4>{{ catslide.title }}</h4>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="featured-section section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <h2 class="section_title">Featured Products</h2>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="custom_product_arrow">
+                    <div class="arrow__back">
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="arrow__forward">
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="product_box">
+                    <ngx-slick-carousel
+                        class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig1"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)"
+                    >
+                        <div ngxSlickItem *ngFor="let productslide of featureProductslides" class="slide cursor-pointer">
+                            <div class="product_card">
+                                <div class="buy_gift_card">
+                                    <div class="quantity">
+                                        <div class="quantity__minus cursor-pointer" (click)="decrement()"><span>-</span></div>
+                                        <input name="quantity" type="text" class="quantity__input"  [(ngModel)]="quantity" value="1">
+                                        <div class="quantity__plus cursor-pointer" (click)="increment()"><span>+</span></div>
+                                    </div>
+                                    <div class="">
+                                        <button class="buy_gift_btn" routerLink="/product-detail/{{productslide.id}}/{{quantity}}/">Buy Gift</button>
+                                    </div>
+                                </div>
+                                <div class="product_card_img">
+                                    <img src="{{ productslide.image }}" alt="product-image" />
+                                </div>
+                                <div class="product_card_content">
+                                    <h3>{{ productslide.title }}</h3>
+                                    <p>{{ productslide.description }}</p>
+                                    <h5>{{ productslide.price }} SAR</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="banner-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4"></div>
+            <div class="col-12 col-lg-8">
+                <h3>Gifts always make people better, happier, and more helpful</h3>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="trending-section section-padding" id="trendingProducts">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <h2 class="section_title">Trending Products</h2>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="custom_product_arrow">
+                    <div class="trending_arrow__back">
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="trending_arrow__forward">
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="product_box">
+                    <ngx-slick-carousel
+                        class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig2"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)"
+                    >
+                        <div ngxSlickItem *ngFor="let trendingslide of trendingslides" class="slide cursor-pointer">
+                            <div class="product_card">
+                                <div class="buy_gift_card">
+                                    <div class="quantity">
+                                        <div class="quantity__minus cursor-pointer" (click)="decrement()"><span>-</span></div>
+                                        <input name="quantity" type="text" class="quantity__input"  [(ngModel)]="quantity" value="1">
+                                        <div class="quantity__plus cursor-pointer" (click)="increment()"><span>+</span></div>
+                                    </div>
+                                    <div class="">
+                                        <button class="buy_gift_btn" routerLink="/product-detail/{{trendingslide.id}}/{{quantity}}/">Buy Gift</button>
+                                    </div>
+                                </div>
+                                <div class="product_card_img">
+                                    <img src="{{ trendingslide.image }}" alt="product-image" />
+                                </div>
+                                <div class="product_card_content">
+                                    <h3>{{ trendingslide.title }}</h3>
+                                    <p>{{ trendingslide.description }}</p>
+                                    <h5>{{ trendingslide.price }} SAR</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="newslatter-section section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <h3>Follow us on Social Media</h3>
+                <ul class="">
+                    <li>
+                        <a href="">
+                            <div class="social_circle">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="social_circle">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="social_circle">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6">
+                <form class="">
+                    <div class="newslatter_form_card">
+                        <input type="email" class="form-control" placeholder="Email Address" />
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

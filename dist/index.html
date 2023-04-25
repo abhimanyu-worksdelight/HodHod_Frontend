@@ -1,20 +1,161 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <title>GiftTo</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAcV7LUFFMiU_cUcsp03MuxJgMEDRcVb5A"></script>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-<style>.preloader{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;background-color:#f35778;background-image:linear-gradient(90deg,#f35778 10%,#f13f65 90%);z-index:9999;transition:opacity .65s}.preloader-progress{position:absolute;inset:0;width:100px;height:150px;margin:auto;overflow:auto;background-image:url(preloader.empty.png);background-size:100px 150px}.preloader-progress-bar{position:absolute;top:0;left:0;bottom:0;min-width:10px;background-image:url(preloader.full.png);background-size:100px 150px}@charset "UTF-8";:root{--blue:#007bff;--indigo:#6610f2;--purple:#7266ba;--pink:#f532e5;--red:#dc3545;--orange:#fd7e14;--yellow:#fad732;--green:#37bc9b;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--inverse:#131e26;--primary-light:#044ddf;--primary-dark:#022b7b;--success-light:#43d967;--success-dark:#1e983b;--info-light:#ef5279;--info-dark:#c91240;--warning-light:#ffab5e;--warning-dark:#f77600;--danger-light:#f47f7f;--danger-dark:#ec2121;--green-light:#58ceb1;--green-dark:#2b957a;--pink-light:#f763eb;--pink-dark:#e90bd6;--purple-light:#9289ca;--purple-dark:#564aa3;--inverse-light:#243948;--inverse-dark:#020304;--yellow-light:#fbe164;--yellow-dark:#f3ca06;--primary:#033cad;--secondary:#fff;--success:#27c24c;--info:#eb2355;--warning:#ff902b;--danger:#f05050;--light:#f8f9fa;--dark:#3a3f51;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-family-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}*,*:before,*:after{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.528571429;color:#656565;text-align:left;background-color:#f5f7fa}@media print{*,*:before,*:after{text-shadow:none!important;box-shadow:none!important}@page{size:a3}body{min-width:992px!important}}html{direction:ltr;height:100%;touch-action:manipulation;font-size:16px}html,body{height:100%}@media (min-width: 768px){body{min-height:100%}}@font-face{font-family:Source Sans Pro;font-weight:300;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Light.ttf.woff2) format("woff2"),url(SourceSansPro-Light.otf.woff) format("woff"),url(SourceSansPro-Light.otf) format("opentype"),url(SourceSansPro-Light.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:400;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Regular.ttf.woff2) format("woff2"),url(SourceSansPro-Regular.otf.woff) format("woff"),url(SourceSansPro-Regular.otf) format("opentype"),url(SourceSansPro-Regular.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:400;font-style:italic;font-stretch:normal;src:url(SourceSansPro-It.ttf.woff2) format("woff2"),url(SourceSansPro-It.otf.woff) format("woff"),url(SourceSansPro-It.otf) format("opentype"),url(SourceSansPro-It.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:600;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Semibold.ttf.woff2) format("woff2"),url(SourceSansPro-Semibold.otf.woff) format("woff"),url(SourceSansPro-Semibold.otf) format("opentype"),url(SourceSansPro-Semibold.ttf) format("truetype")}body{font-family:Source Sans Pro,sans-serif;color:#656565;font-size:.875rem}*:focus{outline:0!important}</style><link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript></head>
+      <meta charset="utf-8">
+      <title>Giftto</title>
+      <base href="/">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+      <style>
+      </style>
+   <style>@import"https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap";@import"https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap";:root{--font_primary:"Josefin Slab", serif;--font_inter:"Inter", sans-serif;--color_primary:#ED3D69;--color_border:rgba(25, 29, 2, .22);--color_gray:#EFEFEF;--color_charkol:#191D02;--color_light_gray:#F6F6F6;--color_coal:#323232}body{background:#FBFBFB!important;font-family:var(--font_inter)}:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:13, 110, 253;--bs-secondary-rgb:108, 117, 125;--bs-success-rgb:25, 135, 84;--bs-info-rgb:13, 202, 240;--bs-warning-rgb:255, 193, 7;--bs-danger-rgb:220, 53, 69;--bs-light-rgb:248, 249, 250;--bs-dark-rgb:33, 37, 41;--bs-white-rgb:255, 255, 255;--bs-black-rgb:0, 0, 0;--bs-body-color-rgb:33, 37, 41;--bs-body-bg-rgb:255, 255, 255;--bs-font-sans-serif:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--bs-font-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-bg:#fff}*,*:before,*:after{box-sizing:border-box}@media (prefers-reduced-motion: no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}@charset "UTF-8"</style><link rel="stylesheet" href="styles.9b36f6f925db2eca.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.9b36f6f925db2eca.css"></noscript></head>
+   <body class="">
+      <app-root></app-root>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcV7LUFFMiU_cUcsp03MuxJgMEDRcVb5A"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script>
+         $(function()
+         {
+           $(document).on('click','.arrow__forward',function()
+           {
+             $('.featured-section').find('.product_box .slick-next').trigger('click');
+           })
+           $(document).on('click','.arrow__back',function()
+           {
+             $('.featured-section').find('.product_box .slick-prev').trigger('click');
+           })
+         
+         
+           $(document).on('click','.trending_arrow__forward',function()
+           {
+             $('.trending-section').find('.product_box .slick-next').trigger('click');
+           })
+           $(document).on('click','.trending_arrow__back',function()
+           {
+             $('.trending-section').find('.product_box .slick-prev').trigger('click');
+           })
+         
+           $(document).on('click','.right_arrow',function()
+           {
+             $('.categories_box').find('.slick-next').trigger('click');
+           })
+           $(document).on('click','.left_arrow',function()
+           {
+             $('.categories_box').find('.slick-prev').trigger('click');
+           })
+         
+           
+           $(document).on('click','.opensignupmodal',function()
+           {
+               $('#authLogin').modal('hide');
+               $('#authSignup').modal('show');
+           });
+         
+           $(document).on('click','.openloginmodal',function()
+           {
+               $('#authSignup').modal('hide');
+               $('#authLogin').modal('show');
+           });
+         
+           // $(document).on('click','.quantity__minus',function()
+           // {
+           //     var decre_val= $(this).parent('.quantity').find('.quantity__input').val();
+           //     if (decre_val > 1)
+           //     {
+           //       decre_val--;            
+           //     }
+           //     $(this).parent('.quantity').find('.quantity__input').val(decre_val);
+           // });
+           // $(document).on('click','.quantity__plus',function()
+           // {
+           //     var incre_val= $(this).parent('.quantity').find('.quantity__input').val();
+           //     incre_val++
+           //     $(this).parent('.quantity').find('.quantity__input').val(incre_val);
+           // });
+         
+         
+          //  $(".occasion_radio_box").change(function()
+          //   { 
+          //     if( $(this).is(":checked") )
+          //     {
+          //       $('.occasion_img_box').removeClass('active_occassion');
+          //       $(this).parent().find('.occasion_img_box').addClass('active_occassion')
+          //     }           
+          //   });
+         
+             $(".lang_dropdown").change(function()
+             { 
+                var active_language = $(this).val(); 
+                if(active_language == "arabic")
+                {
+                  $('body').addClass('rtl-mode');
+                }  
+                else   
+                {
+                  $('body').removeClass('rtl-mode');
+                }
+             });
+         
+         });   
+             
+         
+      </script>
+      <script>
+         function myMap() {
+         var mapProp= {
+           center:new google.maps.LatLng(51.508742,-0.120850),
+           zoom:5,
+         };
+         var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+         }
+      </script>
 
-<body>
-    <app-root></app-root>
-    <div class="preloader">
-        <div class="preloader-progress">
-            <div class="preloader-progress-bar"></div>
-        </div>
-    </div>
-<script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="scripts.js" defer></script><script src="main.js" type="module"></script>
+      <script>
+          // var lowerSlider = document.querySelector('#lower');
+          // var upperSlider = document.querySelector('#upper');
 
+          // if(lowerSlider != null && upperSlider != null){
+          //   document.querySelector('#two').value = upperSlider.value;
+          //   document.querySelector('#one').value = lowerSlider.value;
+          //   var lowerVal = parseInt(lowerSlider.value);
+          //   var upperVal = parseInt(upperSlider.value);
+            
+          //   upperSlider.oninput = function () {
+          //     lowerVal = parseInt(lowerSlider.value);
+          //     upperVal = parseInt(upperSlider.value);
+            
+          //     if (upperVal < lowerVal + 4) {
+          //       lowerSlider.value = upperVal - 4;
+          //       if (lowerVal == lowerSlider.min) {
+          //         upperSlider.value = 4;
+          //       }
+          //     }
+          //     document.querySelector('#two').value=this.value
+          //   };
+            
+          //   lowerSlider.oninput = function () {
+          //     lowerVal = parseInt(lowerSlider.value);
+          //     upperVal = parseInt(upperSlider.value);
+          //     if (lowerVal > upperVal - 4) {
+          //       upperSlider.value = lowerVal + 4;
+          //       if (upperVal == upperSlider.max) {
+          //         lowerSlider.value = parseInt(upperSlider.max) - 4;
+          //       }
+          //     }
+          //     document.querySelector('#one').value=this.value
+          //   }; 
+          // }
+          
+          $(document).on('click','.xs_filter_toggle',function()
+          {
+            $('.filter_menu_card').toggleClass('show_filter');
+          });
+          $(document).on('click','.close_filter_card',function()
+          {
+            $('.filter_menu_card').toggleClass('show_filter');
+          });
+      </script>
+   <script src="runtime.9a26bd5c307536e3.js" type="module"></script><script src="polyfills.8c2d61e37cd8c97e.js" type="module"></script><script src="scripts.bc5e61dcbf647f74.js" defer></script><script src="main.8e4ed1f988636888.js" type="module"></script>
 </body></html>

@@ -1,0 +1,144 @@
+<app-header (notify)="onCitySelectChange($event)"></app-header>
+
+<section class="small-banner-section section-padding"></section>
+
+<section class="dashboard-section section-normal-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="dashboard-left-box">
+                    <div class="filter-header-box">
+                        <h2 class="filter-header mb-0">Gifts from <span>local</span> stores</h2>
+                        <!-- <p class="filter-subheader mb-0">Lorium ipsum is the dummy text..</p> -->
+                    </div>
+                    <div class="category_box my-4">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mb-3" *ngFor="let category of categoriesData">
+                                <div class="category_item cursor-pointer" (click)="getCategoryProductData(category.id)">
+                                    <div class="category_item_img" [ngStyle]="{'background-color': category.color}">
+                                        <img src="{{ category.image }}" />
+                                    </div>
+                                    <h4>{{ category.title }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar_card mb-4">
+                        <div class="filter-header-box pb-3 d-flex align-items-center justify-content-between">
+                            <div>
+                                <h2 class="filter-header mb-0">Filter by <span>Price</span></h2>
+                                <!-- <p class="filter-subheader mb-0">Lorium ipsum is the dummy text..</p> -->
+                            </div>
+                            <button class="price_apply" (click)="filterRangeProduct()">Apply</button>
+                        </div>
+                        <div class="sidebar_body mt-3">
+                            <div class="pricefilter_card">
+                                <p>Price: </p>
+                                <span class="price-wrap-1">
+                                    SAR <input [(ngModel)]="lowerVal" id="one">
+                                </span>
+                                <span class="price-wrap-2">
+                                    SAR <input [(ngModel)]="upperVal" id="two">
+                                </span>
+                            </div>
+                            <div class="price-field">
+                                <input type="range" min="100" max="500" value="135" #lower id="lower"
+                                    (input)="valueLowerChanged($event.target)">
+                                <input type="range" min="100" max="500" value="500" #upper id="upper"
+                                    (input)="valueUpperChanged($event.target)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-header-box">
+                        <h2 class="filter-header mb-0">Search Gifts by <span>Filter</span></h2>
+                        <!-- <p class="filter-subheader mb-0">Lorium ipsum is the dummy text..</p> -->
+                    </div>
+                    <div class="sidebar_card mt-4">
+                        <div class="sidebar_body">
+                            <ul class="sidebar_tag">
+                                <li class="cursor-pointer" *ngFor="let tagItem of tagItemArr">
+                                    <div class="filter_tag" (click)="getTagProductData(tagItem.id)">
+                                        {{tagItem.data.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex align-items-center justify-content-end">
+                        <button class="clear_btn" (click)="clearFilter()">Clear filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9">
+                <div class="shop_head_card mb-2">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" class="form-control" placeholder="Search"
+                                (keyup)="onProductInputSearch($event)">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <select class="form-control sorting" id="productType" (change)="onSelectType($event)">
+                                <option value="Default Sorting">Default Sorting</option>
+                                <option value="Featured">Featured</option>
+                                <option value="Trending">Trending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-right-box">
+                    <div class="container">
+                        <div class="row" *ngIf="isVisible == true">
+                            <!-- <ngx-shimmering-loader
+                                [style]="style"
+                                [elemCount]="8"
+                                [isVisible]="!list"
+                            ></ngx-shimmering-loader> -->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 *ngIf="productlist.length == 0 && isVisible == false"
+                                    class="text-danger text-center pt-5 mt-5">Items not found!</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3" *ngFor="let product of productlist">
+                                <div class="product_card cursor-pointer">
+                                    <div class="buy_gift_card">
+                                        <div class="quantity">
+                                            <div class="quantity__minus cursor-pointer" (click)="decrement()">
+                                                <span>-</span>
+                                            </div>
+                                            <input name="quantity" type="text" class="quantity__input"
+                                                [(ngModel)]="quantity" value="1">
+                                            <div class="quantity__plus cursor-pointer" (click)="increment()">
+                                                <span>+</span>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <button *ngIf="authService.isLoggedIn == true" class="buy_gift_btn"
+                                                routerLink="/product-detail/{{product.id}}/{{quantity}}/">Buy</button>
+                                            <button *ngIf="authService.isLoggedIn == false" data-bs-toggle="modal"
+                                                data-bs-target="#authLogin" class="buy_gift_btn">Buy</button>
+                                        </div>
+                                    </div>
+                                    <div class="product_card_img" style="background-image: url('{{ product.image }}')">
+                                    </div>
+                                    <div class="product_card_content">
+                                        <h3 style="min-height: 2em;  overflow: hidden;">{{ product.title }}</h3>
+                                        <p style="min-height: 3em; max-height: 3em;  overflow: hidden;">
+                                            {{ product.description }}</p>
+                                        <h5>{{ product.price }} SAR</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

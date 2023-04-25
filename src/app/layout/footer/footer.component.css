@@ -1,0 +1,68 @@
+
+
+/******************************
+    ***********************       
+         MEDIA QUERIES
+    ***********************   
+*******************************/
+
+@media(max-width:991px)
+{
+    .footer_col_card h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .footer_address .footer_address_line {
+        line-height: 21px;
+    }
+    .footer_col_card p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+ 
+}
+@media(max-width:767px) 
+ {
+    .footer-section 
+    {
+        padding: 40px 0px;
+    }
+    .footer_col_card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        margin-top: 15px;
+    }
+    .footer_address .footer_icon {
+     
+        text-align: left;
+    }
+
+    .footer_col_card h3 {
+        text-align: center;
+    }
+    .footer_logo {       
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .footer_col_card p {
+        text-align: center;
+    }
+    .footerlink, .footer_address {
+        text-align: center;
+    }
+    .footer_address li {
+        display: block;
+    }
+    .footer_address .footer_icon {
+     
+       margin:0 auto;
+       font-size: 25px;;
+       text-align: center;
+    }
+    .footer_address .footer_address_line {
+        width: 100%;
+    }
+}

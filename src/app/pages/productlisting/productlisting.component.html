@@ -1,0 +1,162 @@
+<app-header (notify)="onCitySelectChange($event)"></app-header>
+
+<section class="breadcum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="shop-section">
+    <div class="xs_filter_toggle">
+        <i class="fa fa-filter"></i>
+    </div>
+    <div class="container">        
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="filter_menu_card">
+                    <div class="filter_menu_card_head">
+                        <h3>Fitler</h3>
+                        <div class="close_filter_card">
+                                <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar_card">
+                        <div class="sidebar_head btt_1">
+                            <h4>Product categories</h4>
+                        </div>
+                        <div class="sidebar_body">
+                            <ul class="sidebar_categories" *ngFor="let catItem of categoryItemArr">
+                                <li><a href="javascript:void(0)" (click)="getCategoryProductData(catItem.id)">{{catItem.data.name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sidebar_card">
+                        <div class="sidebar_head btt_1 d-flex align-items-center justify-content-between">
+                            <h4>Filter by Price</h4>
+                            <button class="price_apply" (click)="filterRangeProduct()">Done</button>
+                        </div>
+                        <div class="sidebar_body">
+                            <div class="pricefilter_card">
+                                <p>Price: </p>                            
+                                <span class="price-wrap-1">                            
+                                    SAR <input id="one">
+                                </span> 
+                                <span class="price-wrap-2">                            
+                                    SAR <input id="two">
+                                </span>
+                            </div>                        
+                            <div class="price-field">
+                                <input type="range" min="100" max="500" value="135" #lower id="lower">
+                                <input type="range" min="100" max="500" value="500" #upper id="upper">
+                            </div>                         
+                        </div>
+                    </div>
+
+                    <div class="sidebar_card">
+                        <div class="sidebar_head btt_1">
+                            <h4>Filter by Tag</h4>
+                        </div>
+                        <div class="sidebar_body">
+                            <ul class="sidebar_tag">
+                                <li *ngFor="let tagItem of tagItemArr">
+                                    <div class="filter_tag" (click)="getTagProductData(tagItem.id)">
+                                        {{tagItem.data.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="sidebar_card d-md-block">
+                        <img src="../../assets/sidebar_banner.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9 mb-5">
+                <div class="row"> 
+                    <div class="col-12">
+                        <div class="shop_head_card">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <input type="text" class="form-control" placeholder="Search" (keyup)="onProductSearchFilter($event)">
+                                </div>
+                                <div class="col-12 col-md-6 ">
+                                    <select class="form-control sorting" id="productType" (change)="onSelectType($event)">
+                                        <option value="Deafult Sorting">Deafult Sorting</option>
+                                        <option value="Featured">Featured</option>
+                                        <option value="Trending">Trending</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="filter_card btt_1">
+                                <div class="row align-items-center ">
+                                    <div class="col-12 col-lg-9">
+                                        <div class="applied_list_flex">
+                                            <b>Applied Filters: </b>
+                                            <ul class="filter_list">                                       
+                                                <li>
+                                                <div class="applied_filter_box">
+                                                    <p> Low to High</p>
+                                                    <div class="remove_filter">
+                                                        <i class="fa fa-times"></i>
+                                                    </div>
+                                                </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-end"> 
+                                        <a href="" class="clear_filter">Clear Filter</a>                                
+                                    </div>
+                                </div>
+                            </div> -->
+                    </div> 
+                </div>
+                <div class="my-5 py-5 text-center" *ngIf="isLoading == true">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="row pt-4" *ngIf="shoplist">
+                    <div class="col-6 col-sm-4  col-md-4 col-lg-4 mb-3" *ngFor="let shoplisting of shoplist">
+                        <div class="product_card">
+                            <div class="buy_gift_card">
+                                <div class="quantity">
+                                    <div class="quantity__minus cursor-pointer" (click)="decrement()"><span>-</span></div>
+                                    <input name="quantity" type="text" class="quantity__input"  [(ngModel)]="quantity" value="1">
+                                    <div class="quantity__plus cursor-pointer" (click)="increment()"><span>+</span></div>
+                                </div>
+                                <div class="">
+                                    <button class="buy_gift_btn" routerLink="/product-detail/{{shoplisting.id}}/{{quantity}}/">Buy <span>Gift</span></button>
+                                </div>
+                            </div>
+                            <div class="product_card_img">
+                                <img src="{{ shoplisting.image }}" alt="product-image">
+                            </div>
+                            <div class="product_card_content">
+                                <h3>{{ shoplisting.title }}</h3>
+                                <p>{{ shoplisting.description }}</p>
+                                <h5>{{ shoplisting.price }} SAR</h5>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div *ngIf="shoplist == ''">
+                    <h1 class="text-center text-danger my-5 py-5">Item not found!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

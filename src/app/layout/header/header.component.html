@@ -1,112 +1,312 @@
-<!-- START Top Navbar-->
-<nav class="navbar topnavbar" role="navigation">
-    <!-- START navbar header-->
-    <div class="navbar-header">
-        <a class="navbar-brand">
-            <div class="brand-logo">
-                <img src="../../../../assets/img/light-logo-icon.png" class="sidebar-single-logo mr-2" /><img src="../../../../assets/img/light-logo.png" class="sidebar-logo" />
+
+<header class="header_card">
+    <!-- <div class="header_card_top">
+        <h4>Welcome to our online store!</h4>
+    </div> -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/logo_dark.svg" />
+            </a>
+            <div class="xs_btn_box">
+                  <!-- <button class="navbar-toggler" type="button" routerLink="/checkout" >
+                    <span class="fa fa-cart-shopping"></span>
+                </button> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-search"></span>
+                </button>             
+              
+                <button class="navbar-toggler" type="button">
+                    <span class="fa fa-user"  role="button"  data-bs-toggle="modal" data-bs-target="#authLogin"></span>
+                </button>
             </div>
-            <div class="brand-logo-collapsed">
-                <img src="../../../../assets/img/light-logo-icon.png" class="sidebar-single-logo" />
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav header_search">
+                    <li class="nav-item me-4 location_dropdown">
+                        <i class="fa fa-map-marker-alt ms-3"></i>
+                        <ngx-select [autoClearSearch]="true" [(ngModel)]="selectedAddress" name="city" [multiple]="false" [items]="citiyItems" 
+                            optionValueField="id" optionTextField="text" [disabled]="disabled" class="city-select" 
+                            placeholder="No city selected" (ngModelChange)="onCityChange($event)">
+                        </ngx-select>
+                    </li>
+                    <!-- <app-dashbaord []></app-dashbaord> -->
+                </ul>
+                <ul class="navbar-nav ms-auto header_action_list">
+                    <!-- <li class="nav-item d-none d-md-block">
+                        <div class="header_card_cartbox">
+                            <div class="header_card_cart_icon">
+                                <i class="fa fa-cart-shopping"></i>
+                            </div>
+                            <div class="header_card_cart_content">
+                                <p>Cart 0 item(s)</p>
+                                <h4>$0.00</h4>
+                            </div>
+                        </div>
+                    </li> -->
+                    <li class="nav-item d-none d-md-block">
+                        <div class="header_card_accountbox">
+                            <div class="header_card_account_icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="header_card_account_content">
+                                <p *ngIf="!OTP">Account</p>
+                                <p *ngIf="OTP">Hi, {{userName}}</p>
+                                <h4 *ngIf="!OTP" role="button" class="" data-bs-toggle="modal" data-bs-target="#authLogin">Login/Signup</h4>
+                                <h4 *ngIf="OTP" role="button" class="" (click)="logout()">Logout</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        <div class="header_card_menubox">
+                            <div class="header_card_menu_icon cursor-pointer" id="header_card_menu_icon" (click)="openNav()">
+                                <!-- <i class="fa fa-bars"></i> -->
+                                ☰
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </a>
+        </div>
+    </nav>
+</header>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a class="nav-link" routerLink="/home">Home</a>
+    <a class="nav-link" routerLink="/faq">FAQ's</a>
+    <a class="nav-link" routerLink="/contact">Contact</a>
+</div>
+<!-- <nav class="navbar navbar-expand-lg menu_box">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="xs_sibling_menu">
+            <li class="nav-item me-4 location_dropdown">
+                <i class="fa fa-map-marker-alt me-2"></i>
+                <ngx-select [autoClearSearch]="true" [(ngModel)]="selectedAddress" name="city" [multiple]="false" [items]="citiyItems" 
+                    optionValueField="id" optionTextField="text" [disabled]="disabled" class="city-select" 
+                    placeholder="No city selected">
+                </ngx-select>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <i class="fa fa-globe me-2"></i> 
+                <select class="lang_dropdown">
+                    <option value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                </select>
+            </li>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/faq">FAQ's</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto menu_right align-items-center">
+               
+                <li class="nav-item me-4 location_dropdown d-none d-md-flex">
+                    <i class="fa fa-map-marker-alt me-2"></i>
+                    <ngx-select [autoClearSearch]="true" [(ngModel)]="selectedAddress" name="team" [multiple]="false" [items]="citiyItems" 
+                        optionValueField="id" optionTextField="text" [disabled]="disabled" class="city-select" 
+                        placeholder="No city selected">
+                    </ngx-select>
+                </li>
+              
+                <li class="nav-item dropdown d-none d-md-block">
+                    <i class="fa fa-globe me-2"></i> 
+                    <select class="lang_dropdown">
+                        <option value="english">English</option>
+                        <option value="arabic">Arabic</option>
+                    </select>
+                </li>        
+            </ul>
+        </div>
     </div>
-    <!-- END navbar header-->
-    <!-- START Left navbar-->
-    <ul class="navbar-nav mr-auto flex-row">
-        <li class="nav-item">
-            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-            <a class="nav-link d-none d-md-block d-lg-block d-xl-block" trigger-resize="" (click)="toggleCollapsedSideabar()" *ngIf="!isCollapsedText()">
-                <em class="fas fa-bars"></em>
-            </a>
-            <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-            <a class="nav-link sidebar-toggle d-md-none" (click)="settings.toggleLayoutSetting('asideToggled'); $event.stopPropagation()">
-                <em class="fas fa-bars"></em>
-            </a>
-        </li>
-        <!-- <li class="nav-item d-none d-md-block">
-            <a class="nav-link"  title="Login screen" (click)=authService.SignOut()>
-                <em class="icon-lock-open"></em>
-            </a>
-        </li> -->
-        
-        <!-- START user screen-->
-        <!-- <li class="nav-item d-none d-md-block">
-            <a class="nav-link"  title="User screen" [routerLink]="'/system/managers'">
-                <em class="fa fa-user"></em>
-            </a>
-        </li> -->
-        <!-- END user screen-->
+</nav> -->
 
-        <!-- START lock screen-->
-        <!-- <li class="nav-item d-none d-md-block">
-            <a class="nav-link"  title="Login screen" (click)=authService.SignOut()>
-                <em class="icon-lock-open"></em>
-            </a>
-        </li> -->
-        <!-- END lock screen-->
-    </ul>
-    <!-- END Left navbar-->
-    <!-- START Right Navbar-->
-    <ul class="navbar-nav flex-row">
-        <!-- START user info-->
-        <li class="has-user-block pr-3">
-            <app-userblock></app-userblock>
-        </li>
-        <!-- END user info-->
+<!-- Modal -->
+<div class="modal fade" #authLogin id="authLogin" tabindex="-1" aria-labelledby="authLoginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="xs_logo_modal">
+                    <img src="../../assets/logo_light.svg" class="" style="width:110px" />
+                </div>
+                <div class="authform">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="authleft_col">
+                                <img src="../../assets/logo_dark.svg" class="mb-3 mb-md-5" />
+                                <h3>Welcome to Giftstore</h3>
+                                <p>To browse some of the largest collection of gifts to brighten your day to login your accout.</p>
 
-        <!-- <li class="nav-item dropdown dropdown-list mr-4" dropdown>
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret d-flex align-items-center" dropdownToggle>
-                <em class="icon-bell"></em>
-                <span class="badge badge-danger">04</span>
-            </a>
-            <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">
-                <div class="dropdown-item">
-                    <div class="list-group">
-                       <div class="list-group-item list-group-item-action">
-                          <div class="media">
-                             <div class="align-self-start mr-2">
-                                <em class="fab fa-twitter fa-2x text-info"></em>
-                             </div>
-                             <div class="media-body">
-                                <p class="m-0">New followers</p>
-                                <p class="m-0 text-muted text-sm">1 new follower</p>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="list-group-item list-group-item-action">
-                          <div class="media">
-                             <div class="align-self-start mr-2">
-                                <em class="fa fa-envelope fa-2x text-warning"></em>
-                             </div>
-                             <div class="media-body">
-                                <p class="m-0">New e-mails</p>
-                                <p class="m-0 text-muted text-sm">You have 10 new emails</p>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="list-group-item list-group-item-action">
-                          <div class="media">
-                             <div class="align-self-start mr-2">
-                                <em class="fa fa-tasks fa-2x text-success"></em>
-                             </div>
-                             <div class="media-body">
-                                <p class="m-0">Pending Tasks</p>
-                                <p class="m-0 text-muted text-sm">11 pending task</p>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="list-group-item list-group-item-action">
-                          <span class="d-flex align-items-center">
-                             <span class="text-sm">More notifications</span>
-                             <span class="badge badge-danger ml-auto">14</span>
-                          </span>
-                       </div>
+                                <div class="authlink">Not account yet? 
+                                    <span class="opensignupmodal cursor-pointer" (click)="onClickRegisterLink()">Register</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">                          
+                            <div class="authright_col" [hidden]="loginSuccessfull">
+                                <form [formGroup]="valLoginForm" class="form-validate mb-3" role="form" name="loginForm" novalidate="" (submit)="submitLoginForm(valLoginForm.value)">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>Login your Account</h3>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="d-flex mb-2">Phone Number </label>
+                                            <ngx-intl-tel-input
+                                                [preferredCountries]="preferredCountries"
+                                                [enableAutoCountrySelect]="true"
+                                                [enablePlaceholder]="true"
+                                                [searchCountryFlag]="true"
+                                                [searchCountryField]="[
+                                                    SearchCountryField.Iso2,
+                                                    SearchCountryField.Name
+                                                ]"
+                                                [selectFirstCountry]="false"
+                                                [selectedCountryISO]="CountryISO.UnitedArabEmirates"
+                                                [phoneValidation]="true"
+                                                [separateDialCode]="separateDialCode"
+                                                [numberFormat]="PhoneNumberFormat.International"
+                                                name="phone"
+                                                formControlName="phone"
+                                                ngModel
+                                            >
+                                            </ngx-intl-tel-input>
+                                            <!-- <input formControlName="phone" #phone ngModel type="text" class="form-control" /> -->
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="form_submit_btn">
+                                                Send OTP
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="authlink  d-block d-md-none">Not account yet? 
+                                    <span class="opensignupmodal cursor-pointer" (click)="onClickRegisterLink()">Register</span>
+                                </div>
+                            </div>
+
+                            <div class="authright_col" [hidden]="!loginSuccessfull">
+                                <form [formGroup]="valVerifyForm" class="form-validate mb-3" role="form" name="verifyForm" novalidate="" (submit)="submitVerifyForm(valVerifyForm.value)">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>Verify your Otp</h3>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Otp </label>
+                                            <input formControlName="otp" #otp ngModel [pattern]="numberPattern" type="number" class="form-control" />
+                                            <div class="text-danger" *ngIf="valVerifyForm.controls['otp'].hasError('pattern') && (valVerifyForm.controls['otp'].dirty || valVerifyForm.controls['otp'].touched)">Please enter a valid otp</div>
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="form_submit_btn">
+                                                Verify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="authlink d-block d-md-none">Not account yet? 
+                                    <span class="opensignupmodal cursor-pointer" (click)="onClickRegisterLink()">Register</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </li> -->
-    </ul>
-    <!-- END Right Navbar-->
-</nav>
-<!-- END Top Navbar-->
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="authSignup" tabindex="-1" aria-labelledby="authSignupLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="xs_logo_modal">
+                    <img src="../../assets/logo_light.svg" class="" style="width:110px" />
+                </div>
+                <form [formGroup]="valRegisterForm" class="form-validate " autocomplete="off" role="form" name="registerForm" novalidate="" (submit)="submitRegisterForm(valRegisterForm.value)">
+                    <div class="authform">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="authSignupClose">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="authleft_col">
+                                    <img src="../../assets/logo_dark.svg" class="mb-5" />
+                                    <h3>Welcome to Giftstore</h3>
+                                    <p>To browse some of the largest collection of gifts to brighten your day to login your accout.</p>
+
+                                    <div class="authlink" >Already have account ? <span class="openloginmodal cursor-pointer" (click)="onClickLoginLink()">Login</span></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="authright_col">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>Create your Account</h3>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Name </label>
+                                            <input formControlName="name" ngModel type="text" class="form-control" />
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label>Email Address </label>
+                                            <input formControlName="email" [pattern]="emailPattern" ngModel type="email" class="form-control mb-0" />
+                                            <div class="text-danger" *ngIf="valRegisterForm.controls['email'].hasError('pattern') && (valRegisterForm.controls['email'].dirty || valRegisterForm.controls['email'].touched)">Please enter a valid email</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="d-flex mb-2">Phone </label>
+                                            <ngx-intl-tel-input
+                                                [preferredCountries]="preferredCountries"
+                                                [enableAutoCountrySelect]="true"
+                                                [enablePlaceholder]="true"
+                                                [searchCountryFlag]="true"
+                                                [searchCountryField]="[
+                                                    SearchCountryField.Iso2,
+                                                    SearchCountryField.Name
+                                                ]"
+                                                [selectFirstCountry]="false"
+                                                [selectedCountryISO]="CountryISO.UnitedArabEmirates"
+                                                [phoneValidation]="true"
+                                                [separateDialCode]="separateDialCode"
+                                                [numberFormat]="PhoneNumberFormat.International"
+                                                name="phone"
+                                                formControlName="phone"
+                                                ngModel
+                                            >
+                                            </ngx-intl-tel-input>
+                                            <!-- <input formControlName="phone" ngModel type="text" class="form-control" /> -->
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="form_submit_btn">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="authlink  d-block d-md-none" >Already have account ? <span class="openloginmodal cursor-pointer" (click)="onClickLoginLink()">Login</span></div>
+                               
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

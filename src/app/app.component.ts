@@ -1,72 +1,54 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { SettingsService } from './core/settings/settings.service';
-import { AuthService } from './authentication/auth.service';
-import { Location } from '@angular/common';
-import { Router } from "@angular/router";
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  template: `
+    <!-- <app-header></app-header> -->
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  `,
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-    loginType: any;
-    uid: any;
+export class AppComponent {
+  title = 'giftto';
+  lat: any;
+  lng: any;
 
-    @HostBinding('class.layout-fixed') get isFixed() { return this.settings.getLayoutSetting('isFixed'); };
-    @HostBinding('class.aside-collapsed') get isCollapsed() { return this.settings.getLayoutSetting('isCollapsed'); };
-    @HostBinding('class.layout-boxed') get isBoxed() { return this.settings.getLayoutSetting('isBoxed'); };
-    @HostBinding('class.layout-fs') get useFullLayout() { return this.settings.getLayoutSetting('useFullLayout'); };
-    @HostBinding('class.hidden-footer') get hiddenFooter() { return this.settings.getLayoutSetting('hiddenFooter'); };
-    @HostBinding('class.layout-h') get horizontal() { return this.settings.getLayoutSetting('horizontal'); };
-    @HostBinding('class.aside-float') get isFloat() { return this.settings.getLayoutSetting('isFloat'); };
-    @HostBinding('class.offsidebar-open') get offsidebarOpen() { return this.settings.getLayoutSetting('offsidebarOpen'); };
-    @HostBinding('class.aside-toggled') get asideToggled() { return this.settings.getLayoutSetting('asideToggled'); };
-    @HostBinding('class.aside-collapsed-text') get isCollapsedText() { return this.settings.getLayoutSetting('isCollapsedText'); };
-
-    constructor(
-        public settings: SettingsService,
-        private authService: AuthService,
-        private Location:Location,
-        public router: Router,
-        private route: ActivatedRoute,
-    ) { }
-
-    ngOnInit() {
-        // prevent empty links to reload the page
-        document.addEventListener('click', e => {
-            const target = e.target as HTMLElement;
-            if (target.tagName === 'A' && ['', '#'].indexOf(target.getAttribute('href')) > -1)
-                e.preventDefault();
-        });
-
-        this.loginType = sessionStorage.getItem('loginType');
-        // console.log("this.loginType", this.loginType);
-
-        this.uid = sessionStorage.getItem('uid');
-        // console.log("this.uid", this.uid);
-
-        if(this.loginType == null && this.uid == null && window.location.href.split("/").pop() == 'login'){
-            this.authService.SignOut();
-        }
+  constructor() {
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+        this.getReverseGeocodingData(this.lng, this.lat);
+      });
     }
+  }
 
-    ngAfterViewInit() {
-        // prevent empty links to reload the page
-        document.addEventListener('click', e => {
-            const target = e.target as HTMLElement;
-            if (target.tagName === 'A' && ['', '#'].indexOf(target.getAttribute('href')) > -1)
-                e.preventDefault();
-        });
-
-        this.loginType = sessionStorage.getItem('loginType');
-        // console.log("this.loginType", this.loginType);
-
-        this.uid = sessionStorage.getItem('uid');
-        // console.log("this.uid", this.uid);
-
-        if(this.loginType == null && this.uid == null && window.location.href.split("/").pop() == 'login'){
-            this.authService.SignOut();
-        }
+  // get city name by latitude and longitude
+  getReverseGeocodingData(lat: any, lng: any) {
+    if (this.lat, this.lng) {
+      // const latlng = new google.maps.LatLng(this.lat, this.lng);
+      // let geocoder: any;
+      // geocoder = new google.maps.Geocoder();
+      // geocoder.geocode({ 'latLng': latlng }, function (results: any, status: any) {
+      //   if (status == google.maps.GeocoderStatus.OK) {
+      //     if (results[1]) {
+      //       let currentAddress = results[0];
+      //       currentAddress.address_components.forEach((address: any) => {
+      //         if(address.types.includes('country')){
+      //           localStorage.setItem('country', address.long_name);
+      //         }
+      //         if(address.types.includes('administrative_area_level_1')){
+      //           localStorage.setItem('state', address.long_name);
+      //         }
+      //         if(address.types.includes('administrative_area_level_2')){
+      //           localStorage.setItem('city', address.long_name);
+      //         }
+      //       });
+      //     }
+      //   }
+      // });
     }
+  }
+
 }

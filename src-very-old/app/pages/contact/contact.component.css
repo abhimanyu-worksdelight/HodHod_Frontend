@@ -1,0 +1,46 @@
+
+
+.contact_form
+{
+    box-shadow: 0px 4px 54px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.contact_form label
+{
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #323232;
+}
+.contact_form .form-control
+{
+    background: #FDFDFD;    
+    border-radius: 5px;
+    border: 1px solid #efefef;
+    min-height: 45px;
+    outline: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 20px;
+}
+.contact_form textarea
+{
+    min-height: 120px !important;
+}
+
+.contact_form h4
+{
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.page_title
+{
+    font-weight: 700;
+}
+.page_subtitle
+{
+    font-size: 20px;
+}

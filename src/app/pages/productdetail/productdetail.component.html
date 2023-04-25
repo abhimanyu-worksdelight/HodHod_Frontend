@@ -1,0 +1,110 @@
+<app-header></app-header>
+
+<section class="breadcum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg + xml, %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                    aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shop-section" *ngIf="productDetail.data">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5 mb-5">
+                <div class="product_detail_img">
+                    <img src="{{productDetail.data.image}}" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-12 col-md-7 mb-5">
+                <div class="product_detail_card">
+                    <h5 class="cursor-pointer" routerLink="/home"><i class="fas fa-arrow-left"></i> BACK TO GIFTS</h5>
+                    <h1>{{productDetail.data.name}}</h1>
+                    <p>{{productDetail.data.description}}</p>
+                    <div class="row align-items-center mt-3">
+                        <div class="col-12 col-sm-6">
+                            <div class="add_quantity_box">
+                                <div class="quantity">
+                                    <div class="quantity__minus cursor-pointer" (click)="decrement()"><span>-</span>
+                                    </div>
+                                    <input name="quantity" type="text" [(ngModel)]="quantity" class="quantity__input"
+                                        value="1" />
+                                    <div class="quantity__plus cursor-pointer" (click)="increment()"><span>+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <p class="pricebox">Price <span>{{productDetail.data.price}} SAR</span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="dashed_divider"></div>
+                        </div>
+                    </div>
+                    <div class="row gift_external_link align-items-center">
+                        <div class="col-12 col-sm-8">
+                            <p class="mapmodal cursor-pointer" data-bs-toggle="modal" data-bs-target="#mapModal"
+                                (click)="getMapData(productDetail.data.store_id)"><i class="fa fa-map-marker-alt me-2">
+                                </i>Watch where you get a gift</p>
+                            <p><i class="fas fa-gift me-2"></i> Gift Points</p>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <button class="base_btn btn_block base_primary mt-4"
+                                routerLink="/checkout/{{productDetail.id}}/{{quantity}}/">Buy Gift</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="map_card">
+                    <div class="col-12">
+                        <!-- <agm-map 
+                            [latitude]="lat"
+                            [longitude]="lng"
+                            [zoom]="zoom"
+                            [disableDefaultUI]="false"
+                            [mapTypeControl]="true"
+                            [zoomControl]="false"
+                            [fitBounds]="true"
+                            [CenterPosition]="centerPosition"
+                            [usePanning]="true">
+
+                            <agm-marker 
+                                *ngFor="let m of markers; let i = index"
+                                (markerClick)="clickedMarker(m.label, i)"
+                                [latitude]="m.lat"
+                                [longitude]="m.lng"
+                                [agmFitBounds]="true"
+                                [CenterPosition]="centerPosition"
+                                [markerDraggable]="m.draggable">
+                                
+                                <agm-info-window>
+                                    <strong>{{m.label}}</strong>
+                                </agm-info-window>
+                            </agm-marker>
+                        </agm-map> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,317 @@
+
+
+
+
+.gifts-section .nav-pills .nav-link.active,
+.gifts-section  .nav-pills .show > .nav-link
+{
+    color: #fff;
+    background-color: var(--color_primary)
+}
+
+.gifts-section .nav-link
+{
+    color: var(--color_coal);
+    font-weight: 700;
+}
+.giftsearch_card .form-control {
+    border-radius: 50px;
+    border: 0;
+    min-height: 40px;
+}
+
+.gift_list_card 
+{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+.gift_list_row {
+    display: flex;
+    align-items: center;
+    color: var(--color_coal);
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--color_border);
+}
+    
+.gift_title_card
+{
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+.gift_list_img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--color_border);
+    border-radius: 8px;
+    padding: 5px;
+    margin-right:10px
+}
+.gift_list_img img {
+    width: 100%;
+    height: 100%;
+}
+.gift_list_title {
+    width: calc(100% - 100px);
+    padding: 0 15px;
+}
+.gift_list_title h4
+{
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.gift_detail_card
+{
+    width: 35%;
+    display: flex;    
+}
+.gift_list_date_time
+{
+    width: 50%;
+}
+.gift_list_sentby
+{
+    width: calc(100% - 50%);
+    
+}
+.gift_list_title h5,
+.gift_list_date_time h5,
+.gift_list_sentby h5
+{
+    font-size: 17px;
+}
+
+.gift_list_title h5 span,
+.gift_list_sentby h5
+{
+    color: var(--color_primary);
+}
+
+.gift_list_date_time p,
+.gift_list_sentby p 
+{
+    margin-bottom: 5px;
+}
+.gift_list_date_time h5,
+.gift_list_sentby h5
+{
+    font-weight: 600;
+}
+
+.gift_list_redeem
+{
+    width: 20%;
+    text-align: center;
+}
+
+
+
+
+/*** Code Generate Popup ****/
+
+
+
+#codeGenerated .modal-body
+{
+    padding: 40px
+}
+
+
+.cg_icon_box {
+    width: 60px;
+    height: 60px;
+    background: var(--color_primary);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 72px;
+    font-size: 38px;
+    color: #fff;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.code_genrated_card {
+    text-align: center;
+}
+.copy_code_card
+{
+    display: flex;
+    justify-content: center;
+}
+.copy_code_input {
+    width: calc(90% - 50px);
+    margin-right: 15px;
+}
+.copy_code_input .form-control {
+    background: #F3F3F3;
+    border-radius: 5px;
+    outline: 0 !important;
+    box-shadow: none   !important;
+    min-height: 40px;
+
+}
+
+.copy_code_btn {
+    width: 50px;
+    height: 40px;
+    line-height:40px;
+    background: var(--color_primary);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.speration_box {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social_share_btns {
+    display: flex;
+    justify-content: space-around;
+}
+.social_btn {
+    padding: 4px 10px;
+    background: transparent;
+    display: inline-block;
+    border: 1px solid var(--color_border);
+    border-radius: 15px;
+    display: flex;
+    align-items: center; 
+    font-weight: 600;
+    font-size: 14px;
+}
+.social_btn  svg
+{
+    margin-right:5px
+}
+.facbook_btn {
+    color: #0b57b2;
+}
+.insta_btn {
+    color: #c58c0f;
+}
+.whatsapp_btn {
+    color: #4c9f1d;
+}
+.email_btn {
+    color: #323232;
+}
+.close_modal {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    line-height: 30px;
+    border: 2px solid #858585;
+    background: #fff;
+}
+
+
+
+/************ 
+    MEDIA QUERIES
+***********/
+
+
+@media(max-width:1199px) 
+{
+.gift_list_img{
+    width: 80px;
+    height: 80px;
+}
+.gift_list_date_time {
+    width: 65%;
+}
+.gift_list_sentby
+{
+    width: calc(100% - 65%);
+}
+}
+@media(max-width:991px) 
+{
+    .gift_list_row
+     {
+        display: block;
+    }
+    .gift_title_card
+    {
+        width: 100%;
+    }
+    .gift_detail_card {
+        width: 65%;
+        padding-left: 105px;
+    }
+    .gift_list_redeem {
+        width: 100%;
+        text-align: right;
+        margin-top: -40px;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .gift_detail_card
+    {
+        width: 65%;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 576px)
+{
+    .gift_list_redeem{
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+    }
+    .container-sm, .container {
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
+    .gift_list_card {
+        padding: 0 15px;
+    }
+    .gift_list_img
+    {
+        width: 60px;
+        height: 60px;
+    }
+    .gift_list_title
+    {
+        width: calc(100% - 60px);
+        padding: 0px 2px;
+    }
+    .gift_list_title h4
+    {
+        font-size: 18px;
+        line-height: normal;
+    }
+    .gift_detail_card
+    {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+    .base_btn_sm {      
+        padding: 0 25px;
+        border: 0;
+        border-radius: 5px;
+    }
+    .gift_list_date_time p
+    {
+        font-size: 13px;
+    }
+    .gift_list_title h5, 
+    .gift_list_date_time h5, 
+    .gift_list_sentby h5
+    {
+        font-size: 15px;
+    }
+}
